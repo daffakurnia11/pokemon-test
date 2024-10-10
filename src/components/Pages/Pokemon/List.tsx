@@ -2,16 +2,22 @@
 
 import React from "react";
 import Typography from "@/components/Typography";
-import { usePokemonList } from "@/hooks/swr/usePokemon";
+import { usePokemonByName, usePokemonList } from "@/hooks/swr/usePokemon";
 import Card from "@/components/Card";
 import { PokemonListResult } from "@/types/pokemon";
+import { useAtomValue } from "jotai";
+import { searchAtom } from "@/utils/atoms";
 
 export default function PokemonList() {
   const [currentPage, setCurrentPage] = React.useState(1);
+  const search = useAtomValue(searchAtom);
   const limit = 10;
   const offset = (currentPage - 1) * limit;
 
   const { data, isLoading } = usePokemonList({ limit, offset });
+
+  const { data: detailData, isLoading: detailLoading } =
+    usePokemonByName(search);
 
   const handleNextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
@@ -30,38 +36,38 @@ export default function PokemonList() {
         as="h1"
         className="font-bold mb-5 text-center"
       >
-        List of Pokemons
+        List of Pokemon
       </Typography.Heading>
-      <div className="grid grid-cols-5 gap-4">
-        {isLoading
-          ? [...Array(10)].map((_, i: number) => (
-              <div className="col-span-1" key={i}>
-                <Card.Loading />
-              </div>
-            ))
-          : data?.results.map((data: PokemonListResult, i: number) => (
-              <div className="col-span-1" key={i}>
-                <Card.Pokemon name={data.name} url={data.url} />
-              </div>
-            ))}
+      <div className="flex justify-center flex-wrap gap-4">
+        {isLoading || detailLoading ? (
+          [...Array(10)].map((_, i: number) => <Card.Loading key={i} />)
+        ) : search && detailData ? (
+          <Card.Pokemon {...detailData} />
+        ) : (
+          data?.results.map((data: PokemonListResult, i: number) => (
+            <Card.List key={i} url={data.url} />
+          ))
+        )}
       </div>
-      <div className="flex justify-center items-center gap-4 mt-6">
-        <button
-          onClick={handlePrevPage}
-          className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
-          disabled={currentPage === 1 || isLoading}
-        >
-          Previous
-        </button>
-        <span className="text-lg font-medium">Page {currentPage}</span>
-        <button
-          onClick={handleNextPage}
-          className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
-          disabled={isLoading || !data?.next}
-        >
-          Next
-        </button>
-      </div>
+      {!search && (
+        <div className="flex justify-center items-center gap-4 mt-6">
+          <button
+            onClick={handlePrevPage}
+            className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+            disabled={currentPage === 1 || isLoading}
+          >
+            Previous
+          </button>
+          <span className="text-lg font-medium">Page {currentPage}</span>
+          <button
+            onClick={handleNextPage}
+            className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+            disabled={isLoading || !data?.next}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 }

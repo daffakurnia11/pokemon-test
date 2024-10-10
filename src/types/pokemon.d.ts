@@ -1,5 +1,4 @@
 export interface PokemonListResult {
-  name: string;
   url: string;
 }
 

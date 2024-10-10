@@ -12,6 +12,11 @@ class PokemonApi extends ApiService {
     const response = await this.get<PokemonDetailResponse>(url);
     return response
   }
+
+  public async getPokemonByName(name: string) {
+    const response = await this.get<PokemonDetailResponse>(url.pokemonSearch(name));
+    return response
+  }
 }
 
 export const pokemonApi = new PokemonApi();

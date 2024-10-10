@@ -4,7 +4,7 @@ import Typography from "../Typography";
 
 export default function CardLoading() {
   return (
-    <div className="w-full p-6 bg-white rounded-lg">
+    <div className="w-[240px] p-6 bg-white rounded-lg">
       <div className="w-full aspect-square pb-3">
         <Skeleton className="w-full h-full" />
       </div>

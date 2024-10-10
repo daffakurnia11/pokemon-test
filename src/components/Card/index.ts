@@ -1,9 +1,10 @@
 import CardLoading from "./Loading";
-import CardPokemon from "./Pokemon";
+import { CardList, CardPokemon } from "./Pokemon";
 
 const Card = {
   Loading: CardLoading,
-  Pokemon: CardPokemon
-}
+  List: CardList,
+  Pokemon: CardPokemon,
+};
 
-export default Card
+export default Card;
