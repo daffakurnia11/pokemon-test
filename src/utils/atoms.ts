@@ -10,3 +10,5 @@ export const messageContent = atom<MessageType>({
   content: null,
 });
 export const setMessageContent = createStore();
+
+export const searchAtom = atom<string>("");
