@@ -7,10 +7,24 @@ import Card from "@/components/Card";
 import { PokemonListResult } from "@/types/pokemon";
 
 export default function PokemonList() {
-  const { data, isLoading } = usePokemonList({ limit: 10, offset: 0 });
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const limit = 10;
+  const offset = (currentPage - 1) * limit;
+
+  const { data, isLoading } = usePokemonList({ limit, offset });
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  };
 
   return (
-    <div className="container my-6">
+    <div className="container my-6 pt-[64px]">
       <Typography.Heading
         level={4}
         as="h1"
@@ -30,6 +44,23 @@ export default function PokemonList() {
                 <Card.Pokemon name={data.name} url={data.url} />
               </div>
             ))}
+      </div>
+      <div className="flex justify-center items-center gap-4 mt-6">
+        <button
+          onClick={handlePrevPage}
+          className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+          disabled={currentPage === 1 || isLoading}
+        >
+          Previous
+        </button>
+        <span className="text-lg font-medium">Page {currentPage}</span>
+        <button
+          onClick={handleNextPage}
+          className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+          disabled={isLoading || !data?.next}
+        >
+          Next
+        </button>
       </div>
     </div>
   );

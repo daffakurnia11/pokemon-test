@@ -16,17 +16,28 @@ export default function CardPokemon({ name, url }: PokemonListResult) {
 
   return data && !isLoading ? (
     <div className="w-full p-6 bg-white rounded-lg shadow hover:shadow-xl hover:scale-105 duration-300">
-      <div className="h-full aspect-square pb-3 duration-300">
-        <Image
-          src={data.sprites.other.dream_world.front_default}
-          alt="Pokemon Image"
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: "auto", height: "100%" }}
-          className="mx-auto"
-        />
-      </div>
+      {data.sprites.other.dream_world.front_default ? (
+        <div className="h-full aspect-square pb-3 duration-300">
+          <Image
+            src={data.sprites.other.dream_world.front_default ?? ""}
+            alt="Pokemon Image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: "auto", height: "100%" }}
+            className="mx-auto"
+          />
+        </div>
+      ) : (
+        <div className="w-full h-full aspect-square pb-3 duration-300 flex justify-center items-center">
+          <Typography.Text
+            size="lg"
+            className="text-center font-semibold text-gray-500 italic"
+          >
+            No Image
+          </Typography.Text>
+        </div>
+      )}
       <Typography.Heading
         as="h2"
         level={6}
