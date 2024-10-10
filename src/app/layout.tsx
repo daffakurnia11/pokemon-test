@@ -1,3 +1,4 @@
+import Navigation from "@/components/Navigation";
 import "@/styles/globals.css";
 import { inter } from "@/utils/fonts";
 
@@ -8,7 +9,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="min-h-dvh bg-slate-200 flex items-center justify-center">
+          <Navigation />
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
