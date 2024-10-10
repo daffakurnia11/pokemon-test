@@ -2,6 +2,19 @@ export interface PokemonListResult {
   name: string;
   url: string;
 }
+
+export interface PokemonListResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: PokemonListResult[];
+}
+
+export interface PokemonListParams {
+  limit?: number;
+  offset?: number;
+}
+
 export interface PokemonDetailType {
   type: {
     name: string;

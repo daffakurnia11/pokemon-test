@@ -1,0 +1,1 @@
+export const pokemonList = `/api/v2/pokemon`;
