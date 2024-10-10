@@ -1,7 +1,7 @@
 import { atom, createStore } from "jotai";
 
 interface MessageType {
-  type: "success" | "warning" | "error";
+  type: "success" | "error";
   content: string | null;
 }
 

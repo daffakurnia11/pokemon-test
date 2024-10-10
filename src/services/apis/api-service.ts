@@ -27,7 +27,7 @@ export class ApiService {
    * @returns Message Response string
    */
   private notifHandling(
-    type: "success" | "warning" | "error",
+    type: "success" | "error",
     content: string
   ) {
     setMessageContent.set(messageContent, {
@@ -48,11 +48,12 @@ export class ApiService {
       const response = await this.axiosInstance(config);
 
       return response;
-    } catch (error) {
-      console.log(error)
-      const errorMessage =
-        "We can't continue with your request. Please try again later.";
-      this.notifHandling("warning", errorMessage);
+    } catch (error: any) {
+      let errorMessage = "Something went wrong";
+      if (error.response) {
+        errorMessage = error.response.data;
+      } 
+      this.notifHandling("error", errorMessage);
 
       throw new Error(errorMessage);
     }
