@@ -20,15 +20,17 @@ export interface PokemonDetailType {
   };
 }
 
+export interface PokemonDetailSprite {
+  other: {
+    dream_world: {
+      front_default: string;
+    }
+  }
+}
+
 export interface PokemonDetailResponse {
   id: number;
   name: string;
-  sprites: {
-    other: {
-      dream_world: {
-        front_default: string;
-      }
-    }
-  }
+  sprites: PokemonDetailSprite;
   types: PokemonDetailType[];
 }
