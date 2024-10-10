@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import "@/styles/globals.css";
+import "react-loading-skeleton/dist/skeleton.css";
 import { inter } from "@/utils/fonts";
 
 export default function RootLayout({
