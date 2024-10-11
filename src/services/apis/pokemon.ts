@@ -4,7 +4,7 @@ import type { PokemonDetailResponse, PokemonListParams, PokemonListResponse } fr
 
 class PokemonApi extends ApiService {
   public async getPokemons(params?: PokemonListParams) {
-    const response = await this.get<PokemonListResponse>(url.pokemonList, params);
+    const response = await this.get<PokemonListResponse>(url.pokemonListUrl, params);
     return response;
   }
 
@@ -14,7 +14,7 @@ class PokemonApi extends ApiService {
   }
 
   public async getPokemonByName(name: string) {
-    const response = await this.get<PokemonDetailResponse>(url.pokemonSearch(name));
+    const response = await this.get<PokemonDetailResponse>(url.pokemonSearchUrl(name));
     return response
   }
 }

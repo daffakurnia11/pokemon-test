@@ -1,3 +1,3 @@
-export const pokemonList = `/api/v2/pokemon`;
+export const pokemonListUrl = `/api/v2/pokemon`;
 
-export const pokemonSearch = (search: string) => `/api/v2/pokemon/${search}`;
+export const pokemonSearchUrl = (search: string) => `/api/v2/pokemon/${search}`;
