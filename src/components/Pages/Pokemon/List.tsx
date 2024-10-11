@@ -56,6 +56,7 @@ export default function PokemonList() {
             onClick={handlePrevPage}
             className="px-2 py-1 bg-blue-500 text-white rounded disabled:opacity-50"
             disabled={currentPage === 1 || isLoading}
+            aria-label="Previous page"
           >
             <MdNavigateBefore size={24} className="text-white" />
           </button>
@@ -68,6 +69,7 @@ export default function PokemonList() {
             onClick={handleNextPage}
             className="px-2 py-1 bg-blue-500 text-white rounded disabled:opacity-50"
             disabled={isLoading || !data?.next}
+            aria-label="Next page"
           >
             <MdNavigateNext size={24} className="text-white" />
           </button>

@@ -26,15 +26,14 @@ export function CardPokemon(props: PokemonDetailResponse) {
     <div className="w-[240px]">
       <div className="w-full p-6 bg-white rounded-lg shadow hover:shadow-xl hover:scale-105 duration-300">
         {props.sprites.other.dream_world.front_default ? (
-          <div className="h-full aspect-square pb-3 duration-300">
+          <div className="h-full aspect-square pb-3 duration-300 flex justify-center items-center">
             <Image
               src={props.sprites.other.dream_world.front_default ?? ""}
               alt="Pokemon Image"
-              width={0}
-              height={0}
-              sizes="100vw"
+              width={130}
+              height={130}
+              loading="lazy"
               style={{ width: "auto", height: "100%" }}
-              className="mx-auto"
             />
           </div>
         ) : (
