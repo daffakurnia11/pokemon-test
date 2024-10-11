@@ -4,24 +4,25 @@ import type { PokemonListParams } from "@/types/pokemon";
 import useSWR from "swr";
 
 export const usePokemonList = (params?: PokemonListParams) => {
-  const result = useSWR([pokemonList, params], () =>
+  const { data, isLoading } = useSWR([pokemonList, params], () =>
     pokemonApi.getPokemons(params)
   );
 
-  return result;
+  return { data, isLoading };
 };
 
 export const usePokemonDetail = (url: string) => {
-  const result = useSWR([url], () => pokemonApi.getDetailPokemon(url));
+  const { data, isLoading } = useSWR([url], () =>
+    pokemonApi.getDetailPokemon(url)
+  );
 
-  return result;
+  return { data, isLoading };
 };
 
 export const usePokemonByName = (name?: string) => {
-  const result = useSWR(
-    name && pokemonSearch(name),
-    () => pokemonApi.getPokemonByName(name!)
+  const { data, isLoading } = useSWR(name && pokemonSearch(name), () =>
+    pokemonApi.getPokemonByName(name!)
   );
 
-  return result;
+  return { data, isLoading };
 };
