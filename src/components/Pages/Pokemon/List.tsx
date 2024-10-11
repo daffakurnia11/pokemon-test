@@ -54,15 +54,19 @@ export default function PokemonList() {
         <div className="flex justify-center items-center gap-4 mt-6">
           <button
             onClick={handlePrevPage}
-            className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+            className="px-2 py-1 bg-blue-500 text-white rounded disabled:opacity-50"
             disabled={currentPage === 1 || isLoading}
           >
             <MdNavigateBefore size={24} className="text-white" />
           </button>
-          <span className="text-lg font-medium">Page {currentPage}</span>
+          <div className="w-[30px]">
+            <Typography.Text className="font-medium text-center">
+              {currentPage}
+            </Typography.Text>
+          </div>
           <button
             onClick={handleNextPage}
-            className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+            className="px-2 py-1 bg-blue-500 text-white rounded disabled:opacity-50"
             disabled={isLoading || !data?.next}
           >
             <MdNavigateNext size={24} className="text-white" />
