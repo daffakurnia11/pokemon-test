@@ -8,11 +8,14 @@ This project is a simple web application built using Next.js that interacts with
 - [Installation](#installation)
 - [Features](#features)
 - [Usage](#usage)
+- [Live Demo](#live-demo)
 - [Tech Decisions](#tech-decisions)
 - [Error Handling](#error-handling)
 - [Testing](#testing)
+- [Performance Overview](#performance-overview)
 - [Security Considerations](#security-considerations)
 - [Future Improvements](#future-improvements)
+- [Contact Information](#contact-information)
 
 ## Project Structure
 
@@ -126,6 +129,12 @@ To run this project locally, follow these steps:
 - Use the search bar to find specific Pokémon by name.
 - Use the pagination arrows to navigate through the Pokémon list.
 
+## Live Demo
+
+Check out the live version of the application:
+
+- [pokemon-test-mu.vercel.app](https://pokemon-test-mu.vercel.app)
+
 ## Tech Decisions
 
 - **Framework Choice**:
@@ -172,6 +181,28 @@ To run this project locally, follow these steps:
   ```bash
   npm run test
   ```
+
+## Performance Overview
+
+The Pokémon Test app has been optimized for performance, accessibility, best practices, and SEO, as measured by Google Lighthouse:
+
+| Metric             | Score |
+| ------------------ | ----- |
+| **Performance**    | 93    |
+| **Accessibility**  | 95    |
+| **Best Practices** | 100   |
+| **SEO**            | 100   |
+
+### Key Metrics
+
+- **First Contentful Paint**: 0.5 seconds – Ensures users see content quickly.
+- **Largest Contentful Paint**: 1.7 seconds – Further optimizations can be applied to images.
+- **Total Blocking Time**: 40 ms – Minimal JavaScript execution time.
+- **Cumulative Layout Shift**: 0.002 – Ensures a stable visual experience without unexpected shifts.
+
+> **Note**: To ensure accurate performance readings, run audits in incognito mode to prevent cached data from affecting scores.
+
+For the live deployment, you can visit: [pokemon-test-mu.vercel.app](https://pokemon-test-mu.vercel.app)
 
 ## Security Considerations
 
