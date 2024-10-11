@@ -7,6 +7,7 @@ import Card from "@/components/Card";
 import { PokemonListResult } from "@/types/pokemon";
 import { useAtomValue } from "jotai";
 import { searchAtom } from "@/utils/atoms";
+import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 
 export default function PokemonList() {
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -56,7 +57,7 @@ export default function PokemonList() {
             className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
             disabled={currentPage === 1 || isLoading}
           >
-            Previous
+            <MdNavigateBefore size={24} className="text-white" />
           </button>
           <span className="text-lg font-medium">Page {currentPage}</span>
           <button
@@ -64,7 +65,7 @@ export default function PokemonList() {
             className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
             disabled={isLoading || !data?.next}
           >
-            Next
+            <MdNavigateNext size={24} className="text-white" />
           </button>
         </div>
       )}
