@@ -22,7 +22,7 @@ export default function Search({
       clearTimeout(searchTimeoutRef.current);
     }
     searchTimeoutRef.current = setTimeout(() => {
-      setSearch(value);
+      setSearch(value.toLowerCase());
     }, 500);
   };
 
