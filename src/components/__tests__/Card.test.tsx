@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import Card from "..";
+import Card from "../Card";
 import { PokemonDetailResponse } from "@/types/pokemon";
 import { usePokemonDetail } from "@/hooks/swr/usePokemon";
 
@@ -55,6 +55,13 @@ describe("Loading Card", () => {
     const typeSkeleton = screen.getAllByTestId("skeleton-type");
     expect(typeSkeleton).toHaveLength(2);
   });
+
+  it("match snapshot", () => {
+    const { asFragment } = render(
+      <Card.List url="https://pokeapi.co/api/v2/pokemon/1/" />
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
 
 describe("Pokemon Card", () => {
@@ -100,5 +107,10 @@ describe("Pokemon Card", () => {
 
     const type2 = screen.getByText(/poison/i);
     expect(type2).toBeInTheDocument();
+  });
+
+  it("match snapshot", () => {
+    const { asFragment } = render(<Card.Pokemon {...mockPokemonDetail} />);
+    expect(asFragment()).toMatchSnapshot();
   });
 });

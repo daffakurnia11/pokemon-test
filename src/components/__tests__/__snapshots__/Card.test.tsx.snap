@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading Card match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="w-[240px] p-6 bg-white rounded-lg"
+  >
+    <div
+      class="w-full aspect-square pb-3"
+      data-testid="skeleton-image"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton w-full h-full"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+    <h2
+      class="font-semibold text-center text-xl className"
+      data-testid="skeleton-heading"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton w-full h-full"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </h2>
+    <div
+      class="mt-2 flex gap-x-2 justify-center"
+    >
+      <div
+        class="!w-[60px] flex-1 grow shrink-0"
+        data-testid="skeleton-type"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+        >
+          <span
+            class="react-loading-skeleton w-full"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+      <div
+        class="!w-[60px] flex-1 grow shrink-0"
+        data-testid="skeleton-type"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+        >
+          <span
+            class="react-loading-skeleton w-full"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Pokemon Card match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="w-[240px]"
+  >
+    <div
+      class="w-full p-6 bg-white rounded-lg shadow hover:shadow-xl hover:scale-105 duration-300"
+    >
+      <div
+        class="h-full aspect-square pb-3 duration-300"
+      >
+        <img
+          alt="Pokemon Image"
+          class="mx-auto"
+          data-nimg="1"
+          decoding="async"
+          height="0"
+          loading="lazy"
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+          style="color: transparent; width: auto; height: 100%;"
+          width="0"
+        />
+      </div>
+      <h2
+        class="font-semibold text-center text-xl className"
+      >
+        BULBASAUR
+      </h2>
+      <div
+        class="flex gap-x-2 justify-center mt-2"
+      >
+        <p
+          class="px-4 py-1 rounded-full bg-green-700/75 text-white className text-xs"
+        >
+          GRASS
+        </p>
+        <p
+          class="px-4 py-1 rounded-full bg-purple-600/75 text-white className text-xs"
+        >
+          POISON
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
